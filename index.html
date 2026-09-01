@@ -4,46 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeuroByte Technologies | Roblox Developer Tools</title>
+
+    <!-- Google Font matching your image (Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         /* Base Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: #0b0f19;
             color: #f8fafc;
             overflow-x: hidden;
+            letter-spacing: -0.2px;
         }
 
-        /* Navigation Header */
+        /* Gradient Helper Class */
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Header Navigation */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background: rgba(11, 15, 25, 0.8);
-            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .brand-name {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            letter-spacing: 1px;
-            color: #94a3b8;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            letter-spacing: 2px;
+            color: #cbd5e1;
         }
 
         .logo-img {
@@ -60,105 +73,193 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 20px 60px;
-            background: radial-gradient(circle at 50% 30%, #1e293b 0%, #0b0f19 70%);
+            padding: 140px 20px 60px;
+            background: radial-gradient(circle at 50% 30%, #1e293b 0%, #0b0f19 75%);
             position: relative;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: rgba(56, 189, 248, 0.15);
-            filter: blur(100px);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 400;
             max-width: 900px;
-            line-height: 1.2;
+            line-height: 1.25;
             margin-bottom: 20px;
         }
 
-        /* Bold and Gradient for 'development team' */
-        .highlight-bold {
+        .hero h1 strong {
             font-weight: 800;
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #94a3b8;
-            max-width: 600px;
-            margin-bottom: 35px;
+            max-width: 650px;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
 
-        /* Call to Action Button */
-        .cta-button {
-            display: inline-block;
-            padding: 14px 32px;
+        .button-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 34px;
             font-size: 1rem;
             font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
             color: #0b0f19;
             background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
             border: none;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
         }
 
-        .cta-button:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
         }
 
-        /* Scroll Indicator */
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #64748b;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            animation: bounce 2s infinite;
+        .btn-secondary {
+            color: #f8fafc;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-            40% { transform: translate(-50%, -10px); }
-            60% { transform: translate(-50%, -5px); }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
         }
 
-        /* Content Sections below */
-        .content-section {
-            padding: 100px 20px;
-            max-width: 1100px;
+        /* General Section Styling */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .content-section h2 {
-            font-size: 2.2rem;
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        /* Grid Layout for Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
             margin-bottom: 15px;
             color: #f1f5f9;
         }
 
-        .content-section p {
+        .card p {
             color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Stats Cards */
+        .stat-card .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-card p {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #060911;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 60px 5% 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-left img {
+            height: 60px;
+            width: auto;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-right h4 {
             font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #f8fafc;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
         }
 
         /* Responsive Design */
@@ -166,37 +267,95 @@
             .hero h1 {
                 font-size: 2.2rem;
             }
-            header {
-                padding: 15px 20px;
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-divider {
+                display: none;
+            }
+            .footer-left {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation with Logo on Top Right -->
+    <!-- Header Navigation -->
     <header>
         <div class="brand-name">NEUROBYTE</div>
-        <div class="logo-container">
-            <!-- Replace 'logo.png' with your uploaded logo file name -->
-            <img src="logo.png" alt="NeuroByte Technologies Logo" class="logo-img">
-        </div>
+        <img src="logo.png" alt="NeuroByte Logo" class="logo-img">
     </header>
 
-    <!-- Main Hero Section -->
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Your trusted <span class="highlight-bold">development team</span> for Roblox</h1>
-        <p>Empowering creators with premium scripts, systems, and assets to build next-level experiences.</p>
-        <a href="#more-info" class="cta-button">Explore Products</a>
-
-        <div class="scroll-down">Scroll down for more</div>
+        <h1>Your trusted <strong class="gradient-text">development team</strong></h1>
+        <p>Powering systems & scripts that will take your game to the next level.</p>
+        
+        <div class="button-group">
+            <a href="#shop" class="btn btn-primary">Shop Now</a>
+            <a href="https://www.roblox.com/communities/1052864336/Neurobyte-Techologies" target="_blank" class="btn btn-secondary">Join Us</a>
+        </div>
     </section>
 
-    <!-- Placeholder Section for Scrolling Down -->
-    <section id="more-info" class="content-section">
-        <h2>About NeuroByte Technologies</h2>
-        <p>More information and products will be displayed here soon.</p>
+    <!-- Why Choose Neurobyte Section -->
+    <section id="shop">
+        <h2 class="section-title">Why choose <strong>Neurobyte</strong>?</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Advanced Systems</h3>
+                <p>High-performance, optimized scripts built to enhance gameplay seamless behavior and minimize lag.</p>
+            </div>
+            <div class="card">
+                <h3>Regular Updates</h3>
+                <p>Continuous support and updates to keep your systems compatible with the latest Roblox features.</p>
+            </div>
+            <div class="card">
+                <h3>24/7 Support</h3>
+                <p>Our dedicated team is always available to assist you with installation, setup, and troubleshooting.</p>
+            </div>
+        </div>
     </section>
+
+    <!-- Trusted By Section -->
+    <section>
+        <h2 class="section-title">Trusted by many members</h2>
+        <div class="card-grid">
+            <div class="card stat-card">
+                <span class="stat-number gradient-text">100+</span>
+                <p>Discord Members</p>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-number gradient-text">30+</span>
+                <p>Products Sold</p>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-number gradient-text">99.99%</span>
+                <p>Uptime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="logo.png" alt="NeuroByte Logo">
+                <div class="footer-divider"></div>
+            </div>
+
+            <div class="footer-right">
+                <h4>Communications Server & Links</h4>
+                <div class="footer-links">
+                    <a href="https://discord.gg/eaBBAGf23A" target="_blank">Discord Communications Server</a>
+                    <a href="https://www.roblox.com/communities/1052864336/Neurobyte-Techologies" target="_blank">Roblox Group</a>
+                    <a href="https://www.roblox.com/games/77064773465185/Neurobyte-Lisence-Center" target="_blank">Product Hub (Buy Products)</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
