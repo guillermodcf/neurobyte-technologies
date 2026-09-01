@@ -3,25 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroByte Technologies</title>
+    <title>NeuroByte Technologies | Roblox Developer Tools</title>
     <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #0f172a;
+            background-color: #0b0f19;
             color: #f8fafc;
-            padding: 50px;
+            overflow-x: hidden;
         }
-        h1 {
-            color: #38bdf8;
+
+        /* Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
         }
-        p {
+
+        .brand-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             color: #94a3b8;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 6px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+            background: radial-gradient(circle at 50% 30%, #1e293b 0%, #0b0f19 70%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: rgba(56, 189, 248, 0.15);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            max-width: 900px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        /* Bold and Gradient for 'development team' */
+        .highlight-bold {
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 35px;
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0b0f19;
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Scroll Indicator */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #64748b;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+
+        /* Content Sections below */
+        .content-section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .content-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #f1f5f9;
+        }
+
+        .content-section p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            header {
+                padding: 15px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>NeuroByte Technologies</h1>
-    <p>Coming Soon Website.</p>
+
+    <!-- Header Navigation with Logo on Top Right -->
+    <header>
+        <div class="brand-name">NEUROBYTE</div>
+        <div class="logo-container">
+            <!-- Replace 'logo.png' with your uploaded logo file name -->
+            <img src="logo.png" alt="NeuroByte Technologies Logo" class="logo-img">
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section class="hero">
+        <h1>Your trusted <span class="highlight-bold">development team</span> for Roblox</h1>
+        <p>Empowering creators with premium scripts, systems, and assets to build next-level experiences.</p>
+        <a href="#more-info" class="cta-button">Explore Products</a>
+
+        <div class="scroll-down">Scroll down for more</div>
+    </section>
+
+    <!-- Placeholder Section for Scrolling Down -->
+    <section id="more-info" class="content-section">
+        <h2>About NeuroByte Technologies</h2>
+        <p>More information and products will be displayed here soon.</p>
+    </section>
+
 </body>
 </html>
