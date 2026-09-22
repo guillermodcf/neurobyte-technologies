@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroByte Technologies | Roblox Developer Tools</title>
+    <title>NeuroByte Technologies</title>
 
     <!-- Google Font matching your image (Montserrat) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -204,6 +204,21 @@
             letter-spacing: 1px;
         }
 
+        /* Product Card Styling */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #38bdf8;
+            margin-top: 15px;
+        }
+
         /* Footer Section */
         footer {
             background: #060911;
@@ -295,13 +310,13 @@
         <p>Powering systems & scripts that will take your game to the next level.</p>
         
         <div class="button-group">
-            <a href="#shop" class="btn btn-primary">Shop Now</a>
+            <a href="https://www.roblox.com/games/77064773465185/Neurobyte-Lisence-Center" target="_blank" class="btn btn-primary">Shop Now</a>
             <a href="https://www.roblox.com/communities/1052864336/Neurobyte-Techologies" target="_blank" class="btn btn-secondary">Join Us</a>
         </div>
     </section>
 
     <!-- Why Choose Neurobyte Section -->
-    <section id="shop">
+    <section>
         <h2 class="section-title">Why choose <strong>Neurobyte</strong>?</h2>
         <div class="card-grid">
             <div class="card">
@@ -334,6 +349,37 @@
             <div class="card stat-card">
                 <span class="stat-number gradient-text">99.99%</span>
                 <p>Uptime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Products Section -->
+    <section id="products">
+        <h2 class="section-title">Our <strong>Products</strong></h2>
+        <div class="card-grid">
+            <div class="card product-card">
+                <h3>NeuroSpills</h3>
+                <div class="product-price">R$ 179</div>
+            </div>
+            <div class="card product-card">
+                <h3>NeuroCleaning</h3>
+                <div class="product-price">R$ 129</div>
+            </div>
+            <div class="card product-card">
+                <h3>NeuroPromotions</h3>
+                <div class="product-price">R$ 199</div>
+            </div>
+            <div class="card product-card">
+                <h3>NeuroMusic</h3>
+                <div class="product-price">R$ 99</div>
+            </div>
+            <div class="card product-card">
+                <h3>NeuroNametags</h3>
+                <div class="product-price">R$ 99</div>
+            </div>
+            <div class="card product-card">
+                <h3>NeuroTrash</h3>
+                <div class="product-price">R$ 129</div>
             </div>
         </div>
     </section>
